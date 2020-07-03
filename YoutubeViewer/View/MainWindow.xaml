@@ -22,69 +22,34 @@
             <Image Source="/YoutubeViewer;component/Assets/Youtube-icon.png" Width="50" Height="50" Margin="0,0,10,0"/>
             <Border Background="White" CornerRadius="5" Width="700">
                 <StackPanel Margin="30 5 30 10">
-                    <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="URL" />
+                    <TextBox x:Name="searchURL" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="URL" />
                 </StackPanel>
-            </Border> 
+            </Border>
+            <Button x:Name="searchButton" Height="54" Click="searchButton_Click">
+                <Viewbox Width="48" Height="48">
+                    <Canvas Width="24" Height="24">
+                        <Path Fill="White" Data="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                    </Canvas>
+                </Viewbox>
+            </Button>
         </WrapPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Height="720">
-            <Border Height="35" Padding="5" Background="#76ead7">
+            <Border Height="35" Padding="5" Background="#FF673AB7">
                 <Label VerticalAlignment="Center" Foreground="White">History</Label>
             </Border>
-            <ListBox Background="White" Height="685">
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem> 
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
-                <ListBoxItem>URL1</ListBoxItem>
-                <ListBoxItem>URL2</ListBoxItem>
-                <ListBoxItem>URL3</ListBoxItem>
+            <ListBox x:Name="urlList" Background="White" Height="685">
+                <ListBoxItem x:Name="url1" Selected="ListBoxItem_Selected" Content="https://www.youtube.com/watch?v=WQ52gWMxCF8"/>
             </ListBox>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <Border BorderBrush="Black" BorderThickness="1" Width="1280" Height="720" Background="Black"/>
+            <Border BorderBrush="Black" BorderThickness="1" Width="1280" Height="720" Background="Black">
+                <WebBrowser x:Name="mainBrowser"/>
+            </Border>
 
         </StackPanel>
 
-        <StackPanel Grid.ColumnSpan="2" Grid.Row="2" Background="#c4fb6d"/>
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="2" Background="#FF673AB7"/>
 
     </Grid>
 </Window>
