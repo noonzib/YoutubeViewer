@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation; 
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace YoutubeViewer
 {
@@ -23,6 +24,8 @@ namespace YoutubeViewer
         public MainWindow()
         {
             InitializeComponent();
+
+            XmlDocument doc = new XmlDocument();
         }
 
         private void searchButton_Click(object sender, RoutedEventArgs e)
@@ -45,7 +48,12 @@ namespace YoutubeViewer
             ListBoxItem itm = new ListBoxItem();
             itm.Content = uri;
              
-            this.urlList.Items.Add(itm);
+            this.playList.Items.Add(itm);
+        }
+
+        private void LoadListBoxItem()
+        {
+            
         }
 
         private void ListBoxItem_Selected(object sender, RoutedEventArgs e)

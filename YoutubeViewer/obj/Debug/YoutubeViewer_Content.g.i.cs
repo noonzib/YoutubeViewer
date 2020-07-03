@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/youtube-icon.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/xmlfile1.xml")]
 
 
