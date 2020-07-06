@@ -22,7 +22,7 @@
             <Image Source="/YoutubeViewer;component/Assets/Youtube-icon.png" Width="50" Height="50" Margin="0,0,10,0"/>
             <Border Background="White" CornerRadius="5" Width="700">
                 <StackPanel Margin="30 5 30 10">
-                    <TextBox x:Name="searchURL" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="URL" />
+                    <TextBox x:Name="searchURL" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Insert URL" />
                 </StackPanel>
             </Border>
             <Button x:Name="searchButton" Height="54" Click="searchButton_Click">
