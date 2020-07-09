@@ -65,7 +65,7 @@ namespace YoutubeViewer
             {
                 Console.WriteLine(urlList[i].InnerText);
                 listBoxItem = new ListBoxItem();
-                listBoxItem.Content = urlList[i].Attributes["viewname"];
+                listBoxItem.Content = urlList[i].Attributes["viewname"].Value;
                 listBoxItem.Selected += ListBoxItem_Selected;
                 this.playList.Items.Add(listBoxItem);
             }
@@ -75,10 +75,17 @@ namespace YoutubeViewer
 
         private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
         {
+            XmlDocument doc = new XmlDocument();
+            doc.PreserveWhitespace = true;
+            doc.Load("Resource/URLResource.xml");
 
+            ListBoxItem lbi = e.Source as ListBoxItem;
+            String value = lbi.Content.ToString();
+            XmlNode findURL = doc.SelectSingleNode("/data/url[@viewname='"+value+"']");
+            String url = findURL.InnerText;
 
             // Get URI to navigate to  
-            Uri uri = new Uri((string)this.url1.Content, UriKind.RelativeOrAbsolute);
+            Uri uri = new Uri(url, UriKind.RelativeOrAbsolute);
 
             // Navigate to the desired URL by calling the .Navigate method  
             this.mainBrowser.Navigate(uri);
