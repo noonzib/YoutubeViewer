@@ -25,6 +25,7 @@ namespace YoutubeViewer
         {
             InitializeComponent();
 
+            LoadListBoxItem();
             XmlDocument doc = new XmlDocument();
         }
 
@@ -53,11 +54,29 @@ namespace YoutubeViewer
 
         private void LoadListBoxItem()
         {
-            
+            XmlDocument doc = new XmlDocument();
+            doc.PreserveWhitespace = true;
+            doc.Load("Resource/URLResource.xml");
+            XmlNodeList urlList = doc.GetElementsByTagName("url");
+            ListBoxItem listBoxItem;
+
+
+            for (int i=0; i < urlList.Count; i++)
+            {
+                Console.WriteLine(urlList[i].InnerText);
+                listBoxItem = new ListBoxItem();
+                listBoxItem.Content = urlList[i].Attributes["viewname"];
+                listBoxItem.Selected += ListBoxItem_Selected;
+                this.playList.Items.Add(listBoxItem);
+            }
+
+
         }
 
         private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
         {
+
+
             // Get URI to navigate to  
             Uri uri = new Uri((string)this.url1.Content, UriKind.RelativeOrAbsolute);
 

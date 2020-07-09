@@ -64,3 +64,4 @@ C:\git\YoutubeViewer\YoutubeViewer\obj\Debug\YoutubeViewer.csproj.CoreCompileInp
 C:\git\YoutubeViewer\YoutubeViewer\obj\Debug\YoutubeViewer.csproj.CopyComplete
 C:\git\YoutubeViewer\YoutubeViewer\obj\Debug\YoutubeViewer.exe
 C:\git\YoutubeViewer\YoutubeViewer\obj\Debug\YoutubeViewer.pdb
+C:\Git\YoutubeViewer\YoutubeViewer\bin\Debug\Resource\URLResource.xml

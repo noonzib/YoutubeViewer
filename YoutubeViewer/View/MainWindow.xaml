@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YoutubeViewer"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Width="1600" Height="900" Background="#FF292929" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        mc:Ignorable="d" Width="1280" Height="720" Background="#FF292929" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
 
     <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="1280"/>
+            <ColumnDefinition Width="960"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>  
             <RowDefinition />
-            <RowDefinition Height="720"/>
+            <RowDefinition Height="540"/>
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
  
