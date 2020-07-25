@@ -29,11 +29,13 @@ namespace YoutubeViewer
             XmlDocument doc = new XmlDocument();
         }
 
+        // 검색 버튼 클릭
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
+            String inputUrl = this.searchURL.Text;
 
             // Get URI to navigate to  
-            Uri uri = new Uri(this.searchURL.Text, UriKind.RelativeOrAbsolute);
+            Uri uri = new Uri(inputUrl, UriKind.RelativeOrAbsolute);
 
             // Only absolute URIs can be navigated to  
             if (!uri.IsAbsoluteUri)
@@ -45,11 +47,36 @@ namespace YoutubeViewer
             // Navigate to the desired URL by calling the .Navigate method  
             this.mainBrowser.Navigate(uri);
 
-            // New ListBoxItem
-            ListBoxItem itm = new ListBoxItem();
-            itm.Content = uri;
-             
-            this.playList.Items.Add(itm);
+            // New ListBoxItem <- fixed!! 
+            // content add to xml code
+
+            XmlDocument doc = new XmlDocument();
+            doc.PreserveWhitespace = true;
+            doc.Load("Resource/URLResource.xml");
+            
+            // CREATE element
+            XmlElement urlElement = doc.CreateElement("url");
+            urlElement.InnerText = inputUrl;
+
+            // add attribute
+            XmlAttribute viewName = doc.CreateAttribute("viewname");
+            viewName.Value = inputUrl;
+            urlElement.Attributes.Append(viewName);
+
+            doc.DocumentElement.AppendChild(urlElement);
+
+            doc.Save("Resource/URLResource.xml");
+            MessageBox.Show("Saved File!");
+
+            //Need CLEAR listboxitem method
+            ClearListBoxItem();
+            LoadListBoxItem();
+
+        }
+
+        private void ClearListBoxItem()
+        {
+            this.playList.Items.Clear();
         }
 
         private void LoadListBoxItem()

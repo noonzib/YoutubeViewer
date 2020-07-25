@@ -38,7 +38,7 @@
                 <Label VerticalAlignment="Center" Foreground="White">History</Label>
             </Border>
             <ListBox x:Name="playList" Background="White" Height="685">
-                <ListBoxItem x:Name="url1" Selected="ListBoxItem_Selected" Content="https://www.youtube.com/watch?v=WQ52gWMxCF8"/>
+                
             </ListBox>
         </StackPanel>
 

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<data>
+<data id="data">
     <url viewname="Google">https://www.google.com/</url>
     <url viewname="Naver">https://www.naver.com/</url>
 </data>
+
